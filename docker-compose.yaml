@@ -1,0 +1,27 @@
+services:
+  rust-workstation:
+    image: rust-dev-container:1.94.0-trixie  # 您之前使用 docker commit 生成的全插件镜像
+    container_name: rust-dev-container
+    hostname: rust-dev
+    # command: "/bin/bash"
+    tty: true
+    stdin_open: true
+    # 允许使用 gdb/lldb 进行断点调试
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - RUSTFLAGS=-C link-arg=-fuse-ld=lld
+    volumes:
+      # 将宿主机的项目目录映射到容器，可以映射顶层的多个项目，方便随时切换
+      - ${PROJECT_HOME}:/workspace
+      # 镜像缓存和 Git 缓存卷
+      - rust-cargo-registry:/usr/local/cargo/registry
+      - rust-cargo-git:/usr/local/cargo/git
+    working_dir: /workspace
+
+# 定义命名卷，由 Docker 统一管理在 /var/lib/docker/volumes/
+volumes:
+  rust-cargo-registry:
+  rust-cargo-git:
