@@ -1,6 +1,6 @@
 services:
   rust-workstation:
-    image: rust-dev-container:1.94.0-trixie  # 您之前使用 docker commit 生成的全插件镜像
+    image: rust-vscode-dev-container:1.94.0-trixie
     container_name: rust-dev-container
     hostname: rust-dev
     # command: "/bin/bash"
@@ -12,6 +12,8 @@ services:
     security_opt:
       - seccomp:unconfined
     environment:
+      - TZ=Asia/Shanghai
+      - LANG=C.UTF-8
       - RUSTFLAGS=-C link-arg=-fuse-ld=lld
     volumes:
       # 将宿主机的项目目录映射到容器，可以映射顶层的多个项目，方便随时切换
