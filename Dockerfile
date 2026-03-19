@@ -9,7 +9,8 @@ RUN apt update && apt install -y \
     lld \
     clang \
     lldb \
-    vim
+    vim \
+    bash-completion
 
 ENV RUSTUP_DIST_SERVER="https://rsproxy.cn"
 ENV RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
