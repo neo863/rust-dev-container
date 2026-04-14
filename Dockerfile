@@ -1,4 +1,4 @@
-FROM rust:1.94.0-trixie
+FROM rust:1.94.1-trixie
 
 RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' \
     /etc/apt/sources.list.d/debian.sources

@@ -1,6 +1,6 @@
 services:
   rust-workstation:
-    image: rust-vscode-dev-container:1.94.0-trixie
+    image: rust-vscode-dev-container:1.94.1-trixie-20260414
     container_name: rust-dev-container
     hostname: rust-dev
     # command: "/bin/bash"
@@ -22,6 +22,7 @@ services:
       - rust-cargo-registry:/usr/local/cargo/registry
       - rust-cargo-git:/usr/local/cargo/git
     working_dir: /workspace
+    network_mode: host
 
 # 定义命名卷，由 Docker 统一管理在 /var/lib/docker/volumes/
 volumes:
