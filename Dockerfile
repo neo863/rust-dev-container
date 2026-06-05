@@ -9,6 +9,7 @@ RUN apt update && apt install -y \
     lld \
     clang \
     lldb \
+    musl-tools \
     vim \
     bash-completion \
     bubblewrap \

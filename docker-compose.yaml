@@ -1,6 +1,6 @@
 services:
   rust-workstation:
-    image: rust-vscode-dev-container:1.94.1-trixie-20260414
+    image: rust-vscode-dev-container:1.94.1-trixie-20260605
     container_name: rust-dev-container
     hostname: rust-dev
     # command: "/bin/bash"
